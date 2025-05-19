@@ -37,6 +37,9 @@ $ npm install
 # development
 $ npm run start
 
+$ npm install @nestjs/config class-transformer class-validator argon2 @prisma/client cookie-parser connect-redis express-session ioredis @nestlab/google-recaptcha @nestjs-modules/mailer @react-email/components @react-email/html
+
+$ npm install -D @trivago/prettier-plugin-sort-imports @types/uuid @types/express-session @types/cookie-parser @types/react
 # watch mode
 $ npm run start:dev
 
@@ -55,6 +58,9 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+
+
+
 ```
 
 ## Deployment
