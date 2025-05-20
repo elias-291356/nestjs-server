@@ -1,8 +1,9 @@
-import { ConfvigService } from '@nestjs/config';
+import { ConfigService } from '@nestjs/config';
+import * as dotenv from 'dotenv';
 
-import 'dotenv/config';
+dotenv.config();
 
-export const isDev = (configService: ConfvigService) => {
+export const isDev = (configService: ConfigService) => {
   configService.getOrThrow('NODE_ENV') === 'development';
 };
 
