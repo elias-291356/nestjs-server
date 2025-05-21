@@ -11,7 +11,7 @@ import { Request } from 'express';
 import { ConfirmationDto } from './dto/confirmation.dto';
 import { EmailConfirmationService } from './email-confirmation.service';
 
-@Controller('api/auth/email-confirmation')
+@Controller('auth/email-confirmation')
 export class EmailConfirmationController {
   constructor(
     private readonly emailConfirmationService: EmailConfirmationService,
