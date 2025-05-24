@@ -71,7 +71,7 @@ export class UserService {
       data: {
         email: dto.email,
         displayName: dto.name,
-        isTwoFactorEnable: dto.isTwoFactorEnable,
+        isTwoFactorEnabled: dto.isTwoFactorEnabled,
       },
     });
 

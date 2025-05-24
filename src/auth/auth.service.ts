@@ -78,7 +78,7 @@ export class AuthService {
         'Ваш email не подтвержден. Пожалуйста, проверьте вашу почту и подтвердите адрес.',
       );
     }
-    if (user.isTwoFactorEnable) {
+    if (user.isTwoFactorEnabled) {
       if (!dto.code) {
         await this.twoFactorAuthService.sendTwoFactorToken(user.email);
 
