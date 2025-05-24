@@ -11,7 +11,7 @@ export function ResetPasswordTemplate({
   domain,
   token,
 }: ResetPasswordTemplateProps) {
-  const resetLink = `${domain}/api/auth/new-password?token=${token}`;
+  const resetLink = `${domain}/auth/new-password?token=${token}`;
 
   return (
     <Tailwind>
