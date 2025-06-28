@@ -17,15 +17,15 @@ export function ConfirmationTemplate({
     <Tailwind>
       <Html>
         <Body className="text-black">
-          <Heading>Подтверждение почты</Heading>
+          <Heading>E-Mail-Bestätigung</Heading>
           <Text>
-            Привет! Чтобы подтвердить свой адрес электронной почты, пожалуйста,
-            перейдите по следующей ссылке:
+            Hallo! Um Ihre E-Mail-Adresse zu bestätigen, klicken Sie bitte auf
+            den folgenden Link:
           </Text>
-          <Link href={confirmLink}>Подтвердить почту</Link>
+          <Link href={confirmLink}>E-Mail bestätigen</Link>
           <Text>
-            Эта ссылка действительна в течение 1 часа. Если вы не запрашивали
-            подтверждение, просто проигнорируйте это сообщение.
+            Dieser Link ist 1 Stunde lang gültig. Falls Sie keine Bestätigung
+            angefordert haben, ignorieren Sie diese Nachricht einfach.
           </Text>
         </Body>
       </Html>

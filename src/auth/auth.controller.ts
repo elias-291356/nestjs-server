@@ -77,7 +77,9 @@ export class AuthController {
     @Param('provider') provider: string,
   ) {
     if (!code) {
-      throw new BadRequestException('Не был предоставлен код авторизации.');
+      throw new BadRequestException(
+        'Es wurde kein Autorisierungscode angegeben.',
+      );
     }
 
     await this.authService.extractProfileFromCode(req, provider, code);

@@ -56,7 +56,7 @@ export class BaseOAuthService {
 
     if (!tokensRequest.ok) {
       throw new BadRequestException(
-        `Не удалось получить пользователя с ${this.options.profile_url}. Проверьте правильность токена доступа.`,
+        `Benutzer konnte nicht von ${this.options.profile_url} abgerufen werden. Bitte überprüfen Sie die Gültigkeit des Zugriffstokens.`,
       );
     }
 
@@ -64,7 +64,7 @@ export class BaseOAuthService {
 
     if (!tokens.access_token) {
       throw new BadRequestException(
-        `Нет токенов с ${this.options.access_url}. Убедитесь, что код авторизации действителен.`,
+        `Keine Token von ${this.options.access_url} gefunden. Bitte stellen Sie sicher, dass der Autorisierungscode gültig ist.`,
       );
     }
 
@@ -76,7 +76,7 @@ export class BaseOAuthService {
 
     if (!userRequest.ok) {
       throw new UnauthorizedException(
-        `Не удалось получить пользователя с ${this.options.profile_url}. Проверьте правильность токена доступа.`,
+        `Benutzer konnte nicht von ${this.options.profile_url} abgerufen werden. Bitte überprüfen Sie die Gültigkeit des Zugriffstokens.`,
       );
     }
 

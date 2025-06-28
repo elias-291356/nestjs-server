@@ -17,15 +17,17 @@ export function ResetPasswordTemplate({
     <Tailwind>
       <Html>
         <Body className="text-black">
-          <Heading>Сброс пароля</Heading>
+          <Heading>Passwort zurücksetzen</Heading>
           <Text>
-            Привет! Вы запросили сброс пароля. Пожалуйста, перейдите по
-            следующей ссылке, чтобы создать новый пароль:
+            Hallo! Sie haben eine Passwortzurücksetzung angefordert. Bitte
+            klicken Sie auf den folgenden Link, um ein neues Passwort zu
+            erstellen:
           </Text>
-          <Link href={resetLink}>Подтвердить сброс пароля</Link>
+          <Link href={resetLink}>Passwort zurücksetzen bestätigen</Link>
           <Text>
-            Эта ссылка действительна в течение 1 часа. Если вы не запрашивали
-            сброс пароля, просто проигнорируйте это сообщение.
+            Dieser Link ist 1 Stunde lang gültig. Falls Sie keine
+            Passwortzurücksetzung angefordert haben, ignorieren Sie diese
+            Nachricht einfach.
           </Text>
         </Body>
       </Html>

@@ -25,19 +25,19 @@ export class MailService {
     const domain = this.configService.getOrThrow<string>('ALLOWED_ORIGIN');
     const html = await render(ConfirmationTemplate({ domain, token }));
 
-    return this.sendMail(email, 'Подтверждение почты', html);
+    return this.sendMail(email, 'E-Mail-Bestätigung', html);
   }
 
   public async sendPasswordResetEmail(email: string, token: string) {
     const domain = this.configService.getOrThrow<string>('ALLOWED_ORIGIN');
     const html = await render(ResetPasswordTemplate({ domain, token }));
 
-    return this.sendMail(email, 'Сброс пароля', html);
+    return this.sendMail(email, 'Passwort zurücksetzen', html);
   }
 
   public async sendTwoFactorTokenEmail(email: string, token: string) {
     const html = await render(TwoFactorAuthTemplate({ token }));
 
-    return this.sendMail(email, 'Подтверждение вашей личности', html);
+    return this.sendMail(email, 'Bestätigung Ihrer Identität', html);
   }
 }

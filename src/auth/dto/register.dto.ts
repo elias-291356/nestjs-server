@@ -9,29 +9,30 @@ import {
 import { IsPasswordsMatchingConstraint } from '@/libs/common/decorators/is-passwords-matching-constraint.decorator';
 
 export class RegisterDto {
-  @IsString({ message: 'Имя должно быть строкой.' })
-  @IsNotEmpty({ message: 'Имя обязательно для заполнения.' })
+  @IsString({ message: 'Der Name muss ein String sein.' })
+  @IsNotEmpty({ message: 'Der Name ist erforderlich.' })
   name: string;
-
-  @IsString({ message: 'Email должен быть строкой.' })
-  @IsEmail({}, { message: 'Некорректный формат email.' })
-  @IsNotEmpty({ message: 'Email обязателен для заполнения.' })
+  
+  @IsString({ message: 'E-Mail muss ein String sein.' })
+  @IsEmail({}, { message: 'Ungültiges E-Mail-Format.' })
+  @IsNotEmpty({ message: 'E-Mail ist erforderlich.' })
   email: string;
-
-  @IsString({ message: 'Пароль должен быть строкой.' })
-  @IsNotEmpty({ message: 'Пароль обязателен для заполнения.' })
+  
+  @IsString({ message: 'Passwort muss ein String sein.' })
+  @IsNotEmpty({ message: 'Passwort ist erforderlich.' })
   @MinLength(6, {
-    message: 'Пароль должен содержать минимум 6 символов.',
+    message: 'Passwort muss mindestens 6 Zeichen lang sein.',
   })
   password: string;
-
-  @IsString({ message: 'Пароль подтверждения должен быть строкой.' })
-  @IsNotEmpty({ message: 'Поле подтверждения пароля не может быть пустым.' })
+  
+  @IsString({ message: 'Passwortbestätigung muss ein String sein.' })
+  @IsNotEmpty({ message: 'Das Feld für die Passwortbestätigung darf nicht leer sein.' })
   @MinLength(6, {
-    message: 'Пароль подтверждения должен содержать не менее 6 символов.',
+    message: 'Passwortbestätigung muss mindestens 6 Zeichen lang sein.',
   })
   @Validate(IsPasswordsMatchingConstraint, {
-    message: 'Пароли не совпадают.',
+    message: 'Passwörter stimmen nicht überein.',
   })
+  
   passwordRepeat: string;
 }

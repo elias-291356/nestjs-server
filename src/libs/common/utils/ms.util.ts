@@ -108,7 +108,7 @@ export function ms(str: StringValue): number {
       return n;
     default:
       throw new Error(
-        `Ошибка: единица времени ${type} была распознана, но не существует соответствующего случая. Пожалуйста, проверьте введенные данные.`,
+        `Fehler: Die Zeiteinheit ${type} wurde erkannt, aber es gibt keinen entsprechenden Fall. Bitte überprüfen Sie die eingegebenen Daten.`,
       );
   }
 }

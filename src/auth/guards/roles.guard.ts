@@ -23,7 +23,7 @@ export class RolesGuard implements CanActivate {
 
     if (!roles.includes(request.user.role)) {
       throw new ForbiddenException(
-        'Недостаточно прав. У вас нет прав доступа к этому ресурсу.',
+        'Unzureichende Berechtigungen. Sie haben keinen Zugriff auf diese Ressource.',
       );
     }
 
