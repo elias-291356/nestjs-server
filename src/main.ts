@@ -56,6 +56,8 @@ async function bootstrap() {
     // exposedHeaders: ['set-cookie'],
   });
   app.setGlobalPrefix('api');
-  await app.listen(config.getOrThrow<number>('APPLICATION_PORT'));
+  await app.listen(
+    process.env.PORT || config.getOrThrow<number>('APPLICATION_PORT'),
+  );
 }
 bootstrap();
