@@ -6,21 +6,23 @@ WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install --froyen-lockfile
+RUN yarn install --frozen-lockfile
 
-FROM base AS buil
+FROM base AS build
 
 COPY . .
 
-RUN yarn prisma generate 
+RUN yarn prisma generate
 
 RUN yarn build
 
-FROM NODE_ENV=production
+FROM node:20.17.0-alpine AS production
 
 WORKDIR /app
 
-COPY --from=build /app/package.json /app/yarn.lockfile
+ENV NODE_ENV=production
+
+COPY --from=build /app/package.json /app/yarn.lock
 
 RUN yarn install --production --frozen-lockfile
 
