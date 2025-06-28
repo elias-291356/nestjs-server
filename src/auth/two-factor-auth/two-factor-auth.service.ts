@@ -25,13 +25,13 @@ export class TwoFactorAuthService {
 
     if (!existingToken) {
       throw new NotFoundException(
-        'Токен двухфакторной аутентификации не найден. Убедитесь, что вы запрашивали токен для данного адреса электронной почты.',
+        'Der Zwei-Faktor-Authentifizierungstoken wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie einen Token für diese E-Mail-Adresse angefordert haben.',
       );
     }
 
     if (existingToken.token !== code) {
       throw new BadRequestException(
-        'Неверный код двухфакторной аутентификации. Пожалуйста, проверьте введенный код и попробуйте снова.',
+        'Falscher Zwei-Faktor-Authentifizierungscode. Bitte überprüfen Sie den eingegebenen Code und versuchen Sie es erneut.',
       );
     }
 
@@ -39,7 +39,7 @@ export class TwoFactorAuthService {
 
     if (hasExpired) {
       throw new BadRequestException(
-        'Срок действия токена двухфакторной аутентификации истек. Пожалуйста, запросите новый токен.',
+        'Der Zwei-Faktor-Authentifizierungstoken ist abgelaufen. Bitte fordern Sie einen neuen Token an.',
       );
     }
 

@@ -37,23 +37,26 @@ export class EmailConfirmationService {
     });
     if (!existingToken) {
       throw new NotFoundException(
-        'Токен подтверждения не найден. Пожалуйста, убедитесь, что у вас правильный токен.',
+        'Bestätigungstoken wurde nicht gefunden. Bitte stellen Sie sicher, dass Sie einen gültigen Token haben.',
       );
     }
+
     const hasExpired = new Date(existingToken.expiresIn) < new Date();
     if (hasExpired) {
       throw new BadRequestException(
-        'Токен подтверждения истек. Пожалуйста, запросите новый токен для подтверждения.',
+        'Der Bestätigungstoken ist abgelaufen. Bitte fordern Sie einen neuen Token an.',
       );
     }
+
     const existingUser = await this.userService.findByEmail(
       existingToken.email,
     );
     if (!existingUser) {
       throw new NotFoundException(
-        'Пользователь не найден. Пожалуйста, проверьте введенный адрес электронной почты и попробуйте снова.',
+        'Benutzer wurde nicht gefunden. Bitte überprüfen Sie die eingegebene E-Mail-Adresse und versuchen Sie es erneut.',
       );
     }
+
     await this.prismaService.user.update({
       where: {
         id: existingUser.id,

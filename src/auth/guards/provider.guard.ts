@@ -21,7 +21,7 @@ export class AuthProviderGuard implements CanActivate {
 
     if (!providerInstance) {
       throw new NotFoundException(
-        `Провайдер "${provider}" не найден. Пожалуйста, проверьте правильность введенных данных.`,
+        `Anbieter "${provider}" wurde nicht gefunden. Bitte überprüfen Sie die eingegebenen Daten.`,
       );
     }
 

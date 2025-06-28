@@ -1,7 +1,7 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 
 export class ConfirmationDto {
-  @IsString({ message: 'Токен должен быть строкой.' })
-  @IsNotEmpty({ message: 'Поле токен не может быть пустым.' })
+  @IsString({ message: 'Token muss ein String sein.' })
+  @IsNotEmpty({ message: 'Das Token-Feld darf nicht leer sein.' })
   token: string;
 }

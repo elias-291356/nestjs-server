@@ -27,7 +27,7 @@ export class PasswordRecoveryService {
 
     if (!existingUser) {
       throw new NotFoundException(
-        'Пользователь не найден. Пожалуйста, проверьте введенный адрес электронной почты и попробуйте снова.',
+        'Benutzer wurde nicht gefunden. Bitte überprüfen Sie die eingegebene E-Mail-Adresse und versuchen Sie es erneut.',
       );
     }
 
@@ -53,7 +53,7 @@ export class PasswordRecoveryService {
 
     if (!existingToken) {
       throw new NotFoundException(
-        'Токен не найден. Пожалуйста, проверьте правильность введенного токена или запросите новый.',
+        'Token wurde nicht gefunden. Bitte überprüfen Sie den eingegebenen Token oder fordern Sie einen neuen an.',
       );
     }
 
@@ -61,7 +61,7 @@ export class PasswordRecoveryService {
 
     if (hasExpired) {
       throw new BadRequestException(
-        'Токен истек. Пожалуйста, запросите новый токен для подтверждения сброса пароля.',
+        'Der Token ist abgelaufen. Bitte fordern Sie einen neuen Token zur Bestätigung der Passwortzurücksetzung an.',
       );
     }
 
@@ -71,7 +71,7 @@ export class PasswordRecoveryService {
 
     if (!existingUser) {
       throw new NotFoundException(
-        'Пользователь не найден. Пожалуйста, проверьте введенный адрес электронной почты и попробуйте снова.',
+        'Benutzer wurde nicht gefunden. Bitte überprüfen Sie die eingegebene E-Mail-Adresse und versuchen Sie es erneut.',
       );
     }
 

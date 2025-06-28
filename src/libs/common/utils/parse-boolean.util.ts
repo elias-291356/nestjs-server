@@ -14,6 +14,6 @@ export function parseBoolean(value: string): boolean {
   }
 
   throw new Error(
-    `Не удалось преобразовать значение "${value}" в логическое значение.`,
+    `Der Wert "${value}" konnte nicht in einen booleschen Wert umgewandelt werden.`,
   );
 }

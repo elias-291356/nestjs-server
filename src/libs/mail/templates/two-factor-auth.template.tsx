@@ -11,17 +11,17 @@ export function TwoFactorAuthTemplate({ token }: TwoFactorAuthTemplateProps) {
     <Tailwind>
       <Html>
         <Body className="text-black">
-          <Heading>Двухфакторная аутентификация</Heading>
+          <Heading>Zwei-Faktor-Authentifizierung</Heading>
           <Text>
-            Ваш код двухфакторной аутентификации: <strong>{token}</strong>
+            Ihr Zwei-Faktor-Authentifizierungscode: <strong>{token}</strong>
           </Text>
           <Text>
-            Пожалуйста, введите этот код в приложении для завершения процесса
-            аутентификации.
+            Bitte geben Sie diesen Code in der Anwendung ein, um den
+            Authentifizierungsprozess abzuschließen.
           </Text>
           <Text>
-            Если вы не запрашивали этот код, просто проигнорируйте это
-            сообщение.
+            Falls Sie diesen Code nicht angefordert haben, ignorieren Sie diese
+            Nachricht einfach.
           </Text>
         </Body>
       </Html>

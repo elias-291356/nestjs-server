@@ -34,7 +34,7 @@ export class AuthService {
 
     if (isExists) {
       throw new ConflictException(
-        'Регистрация не удалась. Пользователь с таким email уже существует. Пожалуйста, используйте другой email или войдите в систему.',
+        'Die Registrierung ist fehlgeschlagen. Ein Benutzer mit dieser E-Mail existiert bereits. Bitte verwenden Sie eine andere E-Mail oder melden Sie sich an.',
       );
     }
 
@@ -51,7 +51,7 @@ export class AuthService {
 
     return {
       message:
-        'Вы успешно зарегистрировались. Пожалуйста, подтвердите ваш email. Сообщение было отправлено на ваш почтовый адрес.',
+        'Sie haben sich erfolgreich registriert. Bitte bestätigen Sie Ihre E-Mail-Adresse. Die Nachricht wurde an Ihre E-Mail gesendet.',
     };
   }
 
@@ -60,7 +60,7 @@ export class AuthService {
 
     if (!user || !user.password) {
       throw new NotFoundException(
-        'Пользователь не найден. Пожалуйста, проверьте введенные данные',
+        'Benutzer wurde nicht gefunden. Bitte überprüfen Sie die eingegebenen Daten.',
       );
     }
 
@@ -68,14 +68,14 @@ export class AuthService {
 
     if (!isValidPassword) {
       throw new UnauthorizedException(
-        'Неверный пароль. Пожалуйста, попробуйте еще раз или восстановите пароль, если забыли его.',
+        'Falsches Passwort. Bitte versuchen Sie es erneut oder setzen Sie Ihr Passwort zurück, falls Sie es vergessen haben.',
       );
     }
 
     if (!user.isVerified) {
       await this.emailConfirmationService.sendVerificationToken(user.email);
       throw new UnauthorizedException(
-        'Ваш email не подтвержден. Пожалуйста, проверьте вашу почту и подтвердите адрес.',
+        'Ihre E-Mail ist nicht bestätigt. Bitte überprüfen Sie Ihren Posteingang und bestätigen Sie die Adresse.',
       );
     }
     if (user.isTwoFactorEnabled) {
@@ -84,7 +84,7 @@ export class AuthService {
 
         return {
           message:
-            'Проверьте вашу почту. Требуется код двухфакторной аутентификации.',
+            'Bitte überprüfen Sie Ihre E-Mails. Ein Zwei-Faktor-Authentifizierungscode wird benötigt.',
         };
       }
 
@@ -105,7 +105,7 @@ export class AuthService {
     const providerInstance = this.providerService.findByService(provider);
 
     if (!providerInstance) {
-      throw new NotFoundException(`Провайдер ${provider} не найден`);
+      throw new NotFoundException(`Anbieter ${provider} wurde nicht gefunden.`);
     }
 
     const profile = await providerInstance.findUserByCode(code);
@@ -156,7 +156,7 @@ export class AuthService {
         if (err) {
           return reject(
             new InternalServerErrorException(
-              'Не удалось завершить сессию. Возможно, возникла проблема с сервером или сессия уже была завершена.',
+              'Die Sitzung konnte nicht beendet werden. Möglicherweise gab es ein Serverproblem oder die Sitzung wurde bereits beendet.',
             ),
           );
         }
@@ -174,7 +174,7 @@ export class AuthService {
         if (err) {
           return reject(
             new InternalServerErrorException(
-              'Не удалось сохранить сессию. Проверьте, правильно ли настроены параметры сессии.',
+              'Die Sitzung konnte nicht gespeichert werden. Bitte überprüfen Sie, ob die Sitzungseinstellungen korrekt konfiguriert sind.',
             ),
           );
         }
